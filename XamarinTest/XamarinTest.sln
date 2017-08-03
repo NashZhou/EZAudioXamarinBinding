@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinTest", "XamarinTest\XamarinTest.csproj", "{2FBA6AC2-1383-4485-AE56-6E686F8A12AF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhone = Release|iPhone
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2FBA6AC2-1383-4485-AE56-6E686F8A12AF}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{2FBA6AC2-1383-4485-AE56-6E686F8A12AF}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{2FBA6AC2-1383-4485-AE56-6E686F8A12AF}.Release|iPhone.ActiveCfg = Release|iPhone
+		{2FBA6AC2-1383-4485-AE56-6E686F8A12AF}.Release|iPhone.Build.0 = Release|iPhone
+		{2FBA6AC2-1383-4485-AE56-6E686F8A12AF}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{2FBA6AC2-1383-4485-AE56-6E686F8A12AF}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{2FBA6AC2-1383-4485-AE56-6E686F8A12AF}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{2FBA6AC2-1383-4485-AE56-6E686F8A12AF}.Debug|iPhone.Build.0 = Debug|iPhone
+	EndGlobalSection
+EndGlobal
