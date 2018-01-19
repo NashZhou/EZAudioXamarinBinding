@@ -91,7 +91,7 @@ namespace EZAudioKit
 
     //todo write wrapper: had float**
 	// typedef void (^EZAudioWaveformDataCompletionBlock)(float **, int);
-    delegate void EZAudioWaveformDataCompletionBlock(IntPtr waveformData, int length);
+    delegate void EZAudioWaveformDataCompletionBlock(ref IntPtr waveformData, int length);
 
 	// @protocol EZAudioFileDelegate <NSObject>
 	[Protocol, Model]
@@ -101,7 +101,7 @@ namespace EZAudioKit
         //todo write wrapper: had float**
 		// @optional -(void)audioFile:(EZAudioFile *)audioFile readAudio:(float **)buffer withBufferSize:(UInt32)bufferSize withNumberOfChannels:(UInt32)numberOfChannels;
 		[Export("audioFile:readAudio:withBufferSize:withNumberOfChannels:")]
-		void AudioFile(EZAudioFile audioFile, IntPtr buffer, uint bufferSize, uint numberOfChannels);
+		void AudioFile(EZAudioFile audioFile, ref IntPtr buffer, uint bufferSize, uint numberOfChannels);
 
 		// @optional -(void)audioFileUpdatedPosition:(EZAudioFile *)audioFile;
 		[Export("audioFileUpdatedPosition:")]
@@ -621,7 +621,7 @@ namespace EZAudioKit
         //todo write wrapper: had float**
 		// @optional -(void)audioPlayer:(EZAudioPlayer *)audioPlayer playedAudio:(float **)buffer withBufferSize:(UInt32)bufferSize withNumberOfChannels:(UInt32)numberOfChannels inAudioFile:(EZAudioFile *)audioFile;
 		[Export("audioPlayer:playedAudio:withBufferSize:withNumberOfChannels:inAudioFile:")]
-        void PlayedAudio(EZAudioPlayer audioPlayer, IntPtr buffer, uint bufferSize, uint numberOfChannels, EZAudioFile audioFile);
+        void PlayedAudio(EZAudioPlayer audioPlayer, ref IntPtr buffer, uint bufferSize, uint numberOfChannels, EZAudioFile audioFile);
 
 		// @optional -(void)audioPlayer:(EZAudioPlayer *)audioPlayer updatedPosition:(SInt64)framePosition inAudioFile:(EZAudioFile *)audioFile;
 		[Export("audioPlayer:updatedPosition:inAudioFile:")]
@@ -941,7 +941,7 @@ namespace EZAudioKit
 		// +(void)updateScrollHistory:(float **)scrollHistory withLength:(int)scrollHistoryLength atIndex:(int *)index withBuffer:(float *)buffer withBufferSize:(int)bufferSize isResolutionChanging:(BOOL *)isChanging;
 		[Static]
 		[Export("updateScrollHistory:withLength:atIndex:withBuffer:withBufferSize:isResolutionChanging:")]
-        void UpdateScrollHistory(IntPtr scrollHistory, int scrollHistoryLength, IntPtr index, IntPtr buffer, int bufferSize, IntPtr isChanging);
+        void UpdateScrollHistory(ref IntPtr scrollHistory, int scrollHistoryLength, IntPtr index, IntPtr buffer, int bufferSize, IntPtr isChanging);
 
         //todo write wrapper: had TPCircularBuffer*
 		// +(void)appendDataToCircularBuffer:(TPCircularBuffer *)circularBuffer fromAudioBufferList:(AudioBufferList *)audioBufferList;
@@ -1586,7 +1586,7 @@ namespace EZAudioKit
 		// +(void)updateScrollHistory:(float **)scrollHistory withLength:(int)scrollHistoryLength atIndex:(int *)index withBuffer:(float *)buffer withBufferSize:(int)bufferSize isResolutionChanging:(BOOL *)isChanging __attribute__((deprecated("")));
 		[Static]
 		[Export("updateScrollHistory:withLength:atIndex:withBuffer:withBufferSize:isResolutionChanging:")]
-        void UpdateScrollHistory(IntPtr scrollHistory, int scrollHistoryLength, IntPtr index, IntPtr buffer, int bufferSize, IntPtr isChanging);
+        void UpdateScrollHistory(ref IntPtr scrollHistory, int scrollHistoryLength, IntPtr index, IntPtr buffer, int bufferSize, IntPtr isChanging);
 
         //todo write wrapper: had TPCircularBuffer*
 		// +(void)appendDataToCircularBuffer:(TPCircularBuffer *)circularBuffer fromAudioBufferList:(AudioBufferList *)audioBufferList __attribute__((deprecated("")));

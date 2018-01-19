@@ -42,10 +42,9 @@
     <ObjcBindingCoreSource Include="Structs.cs" />
   </ItemGroup>
   <ItemGroup>
-    <NativeReference Include="..\..\..\libEZAudioUniversal.a">
+    <NativeReference Include="libEZAudioUniversal.a">
       <Kind>Static</Kind>
       <ForceLoad>True</ForceLoad>
-      <Frameworks>AudioToolbox AVFoundation GLKit Accelerate Foundation</Frameworks>
     </NativeReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />

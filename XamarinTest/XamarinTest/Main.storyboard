@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -103,7 +103,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="od8-jv-INB" firstAttribute="leading" secondItem="8wB-iz-3hs" secondAttribute="leading" constant="21" id="1cU-pX-BZp"/>
                                             <constraint firstItem="Lns-i5-tKA" firstAttribute="leading" secondItem="Wwp-Ag-Ebg" secondAttribute="trailing" constant="67" id="33Q-Ra-KdK"/>
@@ -151,21 +151,18 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="BufferRoller" destination="Z97-oG-iD8" id="name-outlet-Z97-oG-iD8"/>
                         <outlet property="audioPlot" destination="Njh-dR-Fiq" id="name-outlet-Njh-dR-Fiq"/>
                         <outlet property="filePathLabel" destination="od8-jv-INB" id="name-outlet-od8-jv-INB"/>
-                        <outlet property="volumeSlider" destination="T5e-lW-aic" id="name-outlet-T5e-lW-aic"/>
-                        <outlet property="rollingSlider" destination="Cg3-Rw-Kum" id="name-outlet-Cg3-Rw-Kum"/>
-                        <outlet property="positionSlider" destination="Lns-i5-tKA" id="name-outlet-Lns-i5-tKA"/>
                         <outlet property="playBtn" destination="5Qt-JU-Q8O" id="name-outlet-5Qt-JU-Q8O"/>
-                        <outlet property="BufferRoller" destination="Z97-oG-iD8" id="name-outlet-Z97-oG-iD8"/>
+                        <outlet property="positionSlider" destination="Lns-i5-tKA" id="name-outlet-Lns-i5-tKA"/>
+                        <outlet property="rollingSlider" destination="Cg3-Rw-Kum" id="name-outlet-Cg3-Rw-Kum"/>
+                        <outlet property="volumeSlider" destination="T5e-lW-aic" id="name-outlet-T5e-lW-aic"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117.6" y="121.8891"/>
+            <point key="canvasLocation" x="117.59999999999999" y="121.8891"/>
         </scene>
     </scenes>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedScreenMetrics key="destination" type="retina47"/>
-    </simulatedMetricsContainer>
 </document>

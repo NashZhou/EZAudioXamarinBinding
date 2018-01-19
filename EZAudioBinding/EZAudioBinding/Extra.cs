@@ -7,10 +7,17 @@ namespace EZAudioKit
     {
         public void UpdateBuffer(float[] buffer, uint bufferSize)
         {
-            IntPtr ptr = Marshal.AllocHGlobal(buffer.Length);
-            Marshal.Copy(buffer, 0, ptr, (int)bufferSize);
-            UpdateBuffer(ptr, bufferSize);
-            Marshal.FreeHGlobal(ptr);
+            GCHandle handle = GCHandle.Alloc(buffer, GCHandleType.Pinned);
+            try
+            {
+                IntPtr ptr = handle.AddrOfPinnedObject();
+                UpdateBuffer(ptr, bufferSize);
+                buffer = (float[])handle.Target;
+            }
+            finally
+            {
+                handle.Free();
+            }
         }
     }
 }

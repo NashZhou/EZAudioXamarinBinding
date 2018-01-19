@@ -8,32 +8,19 @@ using Foundation;
 using EZAudioKit;
 using AVFoundation;
 
-/*
-    todo Implement UI control functions
-*/
 namespace XamarinTest
 {
-    public partial class ViewController : UIViewController
+    public partial class ViewController : UIViewController, IEZAudioPlayerDelegate
     {
-        #region Variables
+        // PlayFile example 
+
         EZAudioFile audioFile;
         EZAudioPlayer player;
-        #endregion
 
-        #region Dealloc
-        protected override void Dispose(bool disposing)
-        {
-            base.Dispose(disposing);
-            NSNotificationCenter.DefaultCenter.RemoveObserver(this);
-        }
-        #endregion
-
-        #region Status bar style
         public override UIStatusBarStyle PreferredStatusBarStyle()
         {
             return UIStatusBarStyle.LightContent;
         }
-        #endregion
 
         protected ViewController(IntPtr handle) : base(handle)
         {
@@ -55,7 +42,7 @@ namespace XamarinTest
             session.SetActive(true, out error);
             if (error != null)
             {
-                Debug.WriteLine("Error setting up audio session active: " + error.LocalizedDescription);
+                //Debug.WriteLine("Error setting up audio session active: " + error.LocalizedDescription);
             }
 
             //
@@ -67,7 +54,7 @@ namespace XamarinTest
             this.audioPlot.ShouldFill = true;
             this.audioPlot.ShouldMirror = true;
 
-            Debug.WriteLine("outputs: " + EZAudioDevice.OutputDevices());
+            //Debug.WriteLine("outputs: " + EZAudioDevice.OutputDevices());
 
             string bundle = NSBundle.MainBundle.PathForResource("simple-drum-beat", "wav");
             audioFile = new EZAudioFile(NSUrl.FromFilename(bundle));
@@ -76,7 +63,8 @@ namespace XamarinTest
                 ShouldLoop = true
             };
             player.WeakDelegate = this;
-            //Right now this test only plays the audio file (No pause button)
+
+            // TODO: Add actions to all the UI controls
             player.PlayAudioFile(audioFile);
         }
 
@@ -97,31 +85,15 @@ namespace XamarinTest
         #endregion
 
         [Export("audioPlayer:playedAudio:withBufferSize:withNumberOfChannels:inAudioFile:")]
-        void PlayedAudio(EZAudioPlayer audioPlayer, IntPtr buffer, uint bufferSize, uint numberOfChannels, EZAudioFile audioFile)
+        public void PlayedAudio(EZAudioPlayer audioPlayer, ref IntPtr buffer, uint bufferSize, uint numberOfChannels, EZAudioFile audioFile)
 		{
+            float[] bufferArrays = new float[bufferSize];
+            Marshal.Copy(buffer, bufferArrays, 0, (int)(bufferSize));
+
             BeginInvokeOnMainThread(() =>
             {
-                //todo Get the value for buffer
-				//float[] buffers = new float[bufferSize * 2];
-                //Marshal.Copy(buffer, buffers, 0, (int)bufferSize * 2);
+                audioPlot?.UpdateBuffer(bufferArrays, bufferSize);
             });
-
-            /* (Objective C method)
-			 
-            - (void)  audioPlayer:(EZAudioPlayer *)audioPlayer
-			          playedAudio:(float **)buffer
-			       withBufferSize:(UInt32)bufferSize
-			 withNumberOfChannels:(UInt32)numberOfChannels
-			          inAudioFile:(EZAudioFile *)audioFile
-			{
-			    __weak typeof (self) weakSelf = self;
-			    dispatch_async(dispatch_get_main_queue(), ^{
-			        [weakSelf.audioPlot updateBuffer:buffer[0]
-			                          withBufferSize:bufferSize];
-			    });
-			}
-			
-            */
 		}
     }
 }
