@@ -708,8 +708,8 @@ namespace EZAudioKit
 
         //fixme why are there 2 audioFiles in this class?
 		// @property (readwrite, copy, nonatomic) EZAudioFile * audioFile;
-		//[Export("audioFile", ArgumentSemantic.Copy)]
-		//EZAudioFile AudioFile { get; set; }
+		[Export("audioFile", ArgumentSemantic.Copy)]
+		EZAudioFile AudioFileProperty { get; set; }
 
 		// @property (readwrite, nonatomic) NSTimeInterval currentTime;
 		[Export("currentTime")]

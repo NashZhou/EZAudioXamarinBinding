@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
@@ -34,7 +34,7 @@
                                                 </constraints>
                                                 <color key="minimumTrackTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </slider>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Cg3-Rw-Kum">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="128" minValue="128" maxValue="1024" translatesAutoresizingMaskIntoConstraints="NO" id="Cg3-Rw-Kum">
                                                 <rect key="frame" x="149" y="42" width="204" height="31"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="odE-Oh-dnQ"/>
@@ -151,7 +151,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="BufferRoller" destination="Z97-oG-iD8" id="name-outlet-Z97-oG-iD8"/>
+                        <outlet property="bufferRoller" destination="Z97-oG-iD8" id="name-outlet-Z97-oG-iD8"/>
                         <outlet property="audioPlot" destination="Njh-dR-Fiq" id="name-outlet-Njh-dR-Fiq"/>
                         <outlet property="filePathLabel" destination="od8-jv-INB" id="name-outlet-od8-jv-INB"/>
                         <outlet property="playBtn" destination="5Qt-JU-Q8O" id="name-outlet-5Qt-JU-Q8O"/>
@@ -162,7 +162,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117.59999999999999" y="121.8891"/>
+            <point key="canvasLocation" x="117.6" y="121.8891"/>
         </scene>
     </scenes>
 </document>

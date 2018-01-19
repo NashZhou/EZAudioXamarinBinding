@@ -19,7 +19,7 @@ namespace XamarinTest
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UISegmentedControl BufferRoller { get; set; }
+        UIKit.UISegmentedControl bufferRoller { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -48,9 +48,9 @@ namespace XamarinTest
                 audioPlot = null;
             }
 
-            if (BufferRoller != null) {
-                BufferRoller.Dispose ();
-                BufferRoller = null;
+            if (bufferRoller != null) {
+                bufferRoller.Dispose ();
+                bufferRoller = null;
             }
 
             if (filePathLabel != null) {
