@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>EZAudio.iOS</id>
+    <version>1.0.1</version>
+    <authors>Nash Zhou</authors>
+    <owners>Nash Zhou</owners>
+    <licenseUrl>https://github.com/NashZhou/EZAudioXamarinBinding/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/NashZhou/EZAudioXamarinBinding</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A Xamarin iOS binding of syedhali’s EZAudio library</description>
+    <releaseNotes>As of now, this binding only supports playing audio files. This library uses many IntPtrs so not all methods are easy to call. EZAudio is deprecated</releaseNotes>
+    <copyright>Copyright 2018</copyright>
+    <tags>xamarin, xamarin-ios, Xamarin.iOS, EZAudio</tags>
+  </metadata>
+  <files>
+    <file src="lib/Xamarin.iOS10/EZAudioBinding.dll" target="lib/Xamarin.iOS10/EZAudioBinding.dll"/>
+  </files>
+</package>
