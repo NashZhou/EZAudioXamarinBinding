@@ -1,5 +1,5 @@
 ﻿using System;
-namespace FoldingTabBar.Android
+namespace FoldingTabBarAndroid
 {
 	public class OddMenuItemsException : Exception
 	{

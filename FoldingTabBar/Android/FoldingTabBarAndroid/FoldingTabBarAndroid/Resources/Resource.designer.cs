@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("FoldingTabBar.Android.Resource", IsApplication=false)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("FoldingTabBarAndroid.Resource", IsApplication=false)]
 
-namespace FoldingTabBar.Android
+namespace FoldingTabBarAndroid
 {
 	
 	
@@ -2575,7 +2575,7 @@ namespace FoldingTabBar.Android
 			public static int abc_toolbar_collapse_description = 2131361830;
 			
 			// aapt resource value: 0x7F0A0027
-			public static int library_name = 2131361831;
+			public static int app_name = 2131361831;
 			
 			// aapt resource value: 0x7F0A0028
 			public static int search_menu_title = 2131361832;

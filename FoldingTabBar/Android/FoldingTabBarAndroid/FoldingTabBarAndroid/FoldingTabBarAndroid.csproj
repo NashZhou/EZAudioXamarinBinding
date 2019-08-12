@@ -5,13 +5,13 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{8E0C8757-B72B-48FF-B6AD-A548F1947C60}</ProjectGuid>
+    <ProjectGuid>{B08BA7F8-99AB-4363-A669-3632B7BCFB85}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{9ef11e43-1701-4396-8835-8392d57abb70}</TemplateGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FoldingTabBar.Android</RootNamespace>
-    <AssemblyName>FoldingTabBar.Android</AssemblyName>
+    <RootNamespace>FoldingTabBarAndroid</RootNamespace>
+    <AssemblyName>FoldingTabBarAndroid</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
@@ -45,13 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Library\CustomBounceInterpolator.cs" />
+    <Compile Include="Library\FoldingTabBar.cs" />
     <Compile Include="Library\OddMenuItemsException.cs" />
     <Compile Include="Library\SelectedMenuItem.cs" />
-    <Compile Include="Library\FoldingTabBar.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -61,11 +60,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\strings.xml" />
-    <AndroidResource Include="Resources\values\dimens.xml">
+    <AndroidResource Include="Resources\drawable\background_tabbar.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\values\colors.xml">
+    <AndroidResource Include="Resources\drawable\ic_action_plus.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
@@ -73,11 +72,11 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\background_tabbar.xml">
+    <AndroidResource Include="Resources\values\colors.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\ic_action_plus.png">
+    <AndroidResource Include="Resources\values\dimens.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>

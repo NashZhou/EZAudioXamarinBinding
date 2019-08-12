@@ -12,7 +12,7 @@ using Android.Util;
 using Android.Views;
 using Android.Views.Animations;
 using Android.Widget;
-namespace FoldingTabBar.Android
+namespace FoldingTabBarAndroid
 {
 	public class FoldingTabBar : LinearLayout
 	{

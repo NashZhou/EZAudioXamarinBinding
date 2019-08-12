@@ -1,6 +1,6 @@
 ﻿using System;
 using Android.Views.Animations;
-namespace FoldingTabBar.Android
+namespace FoldingTabBarAndroid
 {
 	class CustomBounceInterpolator : Java.Lang.Object, IInterpolator
 	{

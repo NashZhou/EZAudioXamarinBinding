@@ -7,7 +7,7 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-    <FoldingTabBar.Android.FoldingTabBar
+    <FoldingTabBarAndroid.FoldingTabBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/folding_tab_bar"
