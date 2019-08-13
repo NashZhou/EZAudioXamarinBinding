@@ -3,7 +3,7 @@
 ***
 | Owner | Library | Documentation | License |
 | :-: | :-: | :-: | :-: |
-| [Yalantis]([https://github.com/Yalantis](https://github.com/Yalantis)) | [OfficialFoldingTabBar.Android](https://github.com/Yalantis/OfficialFoldingTabBar.Android) | [README File](https://github.com/Yalantis/OfficialFoldingTabBar.Android/blob/develop/README.md) | MIT |
+| [Yalantis](https://github.com/Yalantis) | [OfficialFoldingTabBar.Android](https://github.com/Yalantis/OfficialFoldingTabBar.Android) | [README File](https://github.com/Yalantis/OfficialFoldingTabBar.Android/blob/develop/README.md) | MIT |
 
 ### Notes
 ***

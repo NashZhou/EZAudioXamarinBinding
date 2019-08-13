@@ -3,7 +3,7 @@
 ***
 | Owner | Library | Documentation | License |
 | :-: | :-: | :-: | :-: |
-| [Yalantis]([https://github.com/Yalantis](https://github.com/Yalantis)) | [FoldingTabBar.iOS](https://github.com/Yalantis/FoldingTabBar.iOS) | [README File](https://github.com/Yalantis/FoldingTabBar.iOS/blob/master/README.md) | MIT |
+| [Yalantis](https://github.com/Yalantis) | [FoldingTabBar.iOS](https://github.com/Yalantis/FoldingTabBar.iOS) | [README File](https://github.com/Yalantis/FoldingTabBar.iOS/blob/master/README.md) | MIT |
 
 ### Notes
 ***
