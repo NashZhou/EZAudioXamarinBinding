@@ -2,9 +2,10 @@
 using Android.Views;
 using Android.App;
 using Android.OS;
+using SupportFragment = Android.Support.V4.App.Fragment;
 namespace EXFoldingTabBar
 {
-	public class FragmentTwo : Fragment
+	public class FragmentTwo : SupportFragment
 	{
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 		{

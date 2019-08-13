@@ -5,13 +5,15 @@ using Android.Runtime;
 using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.App;
+using Android.Support.V4.App;
 using Android.Views;
 using Android.Widget;
 using FoldingTabBarAndroid;
+using SupportFragment = Android.Support.V4.App.Fragment;
 namespace EXFoldingTabBar
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
-	public class MainActivity : Activity
+	public class MainActivity : AppCompatActivity
 	{
 		FoldingTabBar tabBar;
 		FrameLayout frameLayout;
@@ -48,9 +50,9 @@ namespace EXFoldingTabBar
 			};
 		}
 
-		void ChangeFragment(Fragment fragment)
+		void ChangeFragment(SupportFragment fragment)
 		{
-			FragmentManager.BeginTransaction().Replace(Resource.Id.container, fragment).Commit();
+			SupportFragmentManager.BeginTransaction().Replace(Resource.Id.container, fragment).Commit();
 		}
 	}
 }
