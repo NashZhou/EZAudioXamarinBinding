@@ -9,7 +9,7 @@ namespace EXFoldingTabBar
 	{
 		public CustomTabBarController()
 		{
-			//** Constants is not part of CVFoldingTabBar.iOS, look at this project to find the source **//
+			//** Constants is not part of FoldingTabBariOS, look at this project to find the source **//
 			TabBarView.ExtraTabBarItemHeight = Constants.YALExtraTabBarItemsDefaultHeight;
 			TabBarView.OffsetForExtraTabBarItems = Constants.YALForExtraTabBarItemsDefaultOffset;
 
