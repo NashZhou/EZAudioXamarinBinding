@@ -1,1 +1,1 @@
-# Folding Tab Bar Xamarin Binding
+# FoldingTabBar Xamarin Binding
