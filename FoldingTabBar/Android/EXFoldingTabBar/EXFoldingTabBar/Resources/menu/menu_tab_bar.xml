@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item
+		android:id="@+id/ftb_new_chat"
+		android:icon="@drawable/ic_new_chat_icon"
+	    android:title="Chat"/>
+	<item
+		android:id="@+id/ftb_profile"
+		android:icon="@drawable/ic_profile_icon"
+	    android:title="Profile"/> </menu>
