@@ -54,6 +54,27 @@ namespace FoldingTabBarAndroidForms
 		internal int itemsPadding;
 		internal int drawableResource;
 		internal Color selectionColor;
+		public Color SelectionColor
+		{
+			get { return selectionColor; }
+			set
+			{
+				selectionColor = value;
+				if (mData != null)
+				{
+					for (int i = 0; i < mData.Count; i++)
+					{
+						mData[i].mCirclePaint.Color = selectionColor;
+					}
+				}
+				else
+				{
+					dirtyColor = true;
+				}
+				this.Invalidate();
+			}
+		}
+		internal bool dirtyColor;
 
 		//** New **//
 		public void AddToMenu(IList<MenuItem> items)
@@ -64,45 +85,12 @@ namespace FoldingTabBarAndroidForms
 			if (items.Count % 2 != 0)
 				throw new OddMenuItemsException();
 
+			indexCounter = 0;
+			mMenu.ClearAll();
 			foreach (MenuItem item in items)
 			{
 				mMenu.Add(Menu.None, item.ItemId, Menu.None, item.Title).SetIcon(item.Icon);
 			}
-		}
-
-
-		//** New **//
-		/**
-         * @param menuItem object from Android Sdk. This is same menu item
-         * that you are using e.g in NavigationView or any kind of native menus
-         */
-		internal SelectedMenuItem InitAgainAndAddMenuItem(MenuItem menuItem)
-		{
-			var result = new SelectedMenuItem(Context, selectionColor)
-			{
-				Activated = menuItem.Checked,
-				LayoutParameters = new ViewGroup.LayoutParams(mSize, mSize),
-				Visibility = ViewStates.Gone
-			};
-			result.SetImageDrawable(menuItem.Icon);
-			result.SetPadding(itemsPadding, itemsPadding, itemsPadding, itemsPadding);
-			// * Look here
-			AddView(result, indexCounter);
-
-			result.Click += (sender, e) =>
-			{
-				OnFoldingItemSelected(menuItem.ItemId);
-
-				menuItem.Checked = true;
-
-				if (selectedImageView != null)
-					selectedImageView.Activated = false;
-				selectedImageView = result;
-				selectedIndex = IndexOfChild(result);
-				AnimateMenu();
-			};
-			indexCounter++;
-			return result;
 		}
 
 		//** New **//
@@ -197,7 +185,8 @@ namespace FoldingTabBarAndroidForms
 		{
 			drawableResource = Resource.Drawable.ic_action_plus;
 			itemsPadding = GetItemsPadding();
-			selectionColor = a.GetColor(Resource.Styleable.FoldingTabBar_foldingSelectionColor, Resource.Color.ftb_selected_dot_color);
+			selectionColor = dirtyColor ? selectionColor : a.GetColor(Resource.Styleable.FoldingTabBar_foldingSelectionColor, Resource.Color.ftb_selected_dot_color);
+			dirtyColor = false;
 			//selectionColor = Resource.Color.ftb_selected_dot_color;
 			if (a.HasValue(Resource.Styleable.FoldingTabBar_foldingMainImage))
 				drawableResource = a.GetResourceId(Resource.Styleable.FoldingTabBar_foldingMainImage, 0);
@@ -425,7 +414,6 @@ namespace FoldingTabBarAndroidForms
 			result.Click += (sender, e) =>
 			{
 				OnFoldingItemSelected(menuItem.ItemId);
-
 				menuItem.SetChecked(true);
 
 				if (selectedImageView != null)
