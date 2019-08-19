@@ -158,34 +158,17 @@ namespace FoldingTabBarAndroid
 			var scalingSet = new AnimatorSet();
 
 			var scalingAnimator = ValueAnimator.OfInt(mSize, destWidth);
-			scalingAnimator.Update += (sender, e) =>
-			{
-				var v = (int)e.Animation.AnimatedValue;
-				var layoutParams = LayoutParameters;
-				layoutParams.Width = v;
-				LayoutParameters = layoutParams;
-			};
+			scalingAnimator.AddUpdateListener(new ScalingAnimatorUpdateListener(this));
 			scalingAnimator.AddListener(rollUpListener);
 
 			var rotationAnimator = ValueAnimator.OfFloat(MAIN_ROTATION_START, MAIN_ROTATION_END);
 			//rotationAnimator.AddUpdateListener(new Rotation1Listener(this));
-			rotationAnimator.Update += (sender, e) =>
-			{
-				float v = (float)e.Animation.AnimatedValue;
-				mainImageView.Rotation = v;
-			};
+			rotationAnimator.AddUpdateListener(new RotationAnimatorUpdateListener(this));
 
 			foreach (SelectedMenuItem item in mData)
 			{
 				var it = ValueAnimator.OfFloat(ITEM_ROTATION_START, ITEM_ROTATION_END);
-				//it.AddUpdateListener(new ITUpdateListener(item, ref it));
-				it.Update += (sender, e) =>
-				{
-					var fraction = it.AnimatedFraction;
-					item.ScaleX = fraction;
-					item.ScaleY = fraction;
-					item.Rotation = (float)it.AnimatedValue;
-				};
+				it.AddUpdateListener(new ItemUpdateListener(this, item, it));
 				it.AddListener(expandingListener);
 				rotationSet.PlayTogether(it);
 			}
@@ -196,6 +179,56 @@ namespace FoldingTabBarAndroid
 
 			rotationSet.StartDelay = START_DELAY;
 			mExpandingSet.PlayTogether(scalingSet, rotationSet);
+		}
+
+		internal class ItemUpdateListener : Java.Lang.Object, ValueAnimator.IAnimatorUpdateListener
+		{
+			readonly FoldingTabBar context;
+			private SelectedMenuItem item;
+			private ValueAnimator it;
+			public ItemUpdateListener(FoldingTabBar context, SelectedMenuItem item, ValueAnimator it)
+			{
+				this.context = context;
+				this.item = item;
+				this.it = it;
+			}
+			public void OnAnimationUpdate(ValueAnimator animation)
+			{
+				var fraction = it.AnimatedFraction;
+				item.ScaleX = fraction;
+				item.ScaleY = fraction;
+				item.Rotation = (float)it.AnimatedValue;
+			}
+		}
+
+		internal class ScalingAnimatorUpdateListener : Java.Lang.Object, ValueAnimator.IAnimatorUpdateListener
+		{
+			readonly FoldingTabBar context;
+			public ScalingAnimatorUpdateListener(FoldingTabBar context)
+			{
+				this.context = context;
+			}
+			public void OnAnimationUpdate(ValueAnimator animation)
+			{
+				var v = (int)animation.AnimatedValue;
+				var layoutParams = context.LayoutParameters;
+				layoutParams.Width = v;
+				context.LayoutParameters = layoutParams;
+			}
+		}
+
+		internal class RotationAnimatorUpdateListener : Java.Lang.Object, ValueAnimator.IAnimatorUpdateListener
+		{
+			readonly FoldingTabBar context;
+			public RotationAnimatorUpdateListener(FoldingTabBar context)
+			{
+				this.context = context;
+			}
+			public void OnAnimationUpdate(ValueAnimator animation)
+			{
+				float v = (float)animation.AnimatedValue;
+				context.mainImageView.Rotation = v;
+			}
 		}
 
 		/**
@@ -212,21 +245,11 @@ namespace FoldingTabBarAndroid
 			var scalingAnimator = ValueAnimator.OfInt(destWidth, mSize);
 			var rotationAnimator = ValueAnimator.OfFloat(ROLL_UP_ROTATION_START, ROLL_UP_ROTATION_END);
 
-			scalingAnimator.Update += (sender, e) =>
-			{
-				var v = (int)e.Animation.AnimatedValue;
-				var layoutParams = LayoutParameters;
-				layoutParams.Width = v;
-				LayoutParameters = layoutParams;
-			};
+			scalingAnimator.AddUpdateListener(new ScalingAnimatorUpdateListener(this));
 			mRollupSet.AddListener(rollUpListener);
 
 			//rotationAnimator.AddUpdateListener(new Rotation2Listener(this));
-			rotationAnimator.Update += (sender, e) =>
-			{
-				float v = (float)e.Animation.AnimatedValue;
-				mainImageView.Rotation = v;
-			};
+			rotationAnimator.AddUpdateListener(new RotationAnimatorUpdateListener(this));
 			var scalingSet = new AnimatorSet();
 			scalingSet.PlayTogether(scalingAnimator, rotationAnimator);
 			scalingSet.SetInterpolator(new CustomBounceInterpolator());
@@ -332,20 +355,30 @@ namespace FoldingTabBarAndroid
 		{
 			mainImageView.SetImageResource(drawableResource);
 			mainImageView.LayoutParameters = new ViewGroup.LayoutParams(mSize, mSize);
-			mainImageView.Click += (sender, e) =>
-			{
-				OnMainButtonClicked();
-				AnimateMenu();
-			};
+			mainImageView.SetOnClickListener(new MainImageClickListener(this));
 			AddView(mainImageView, mainButtonIndex);
 			mainImageView.SetPadding(itemsPadding, itemsPadding, itemsPadding, itemsPadding);
+		}
+
+		internal class MainImageClickListener : Java.Lang.Object, IOnClickListener
+		{
+			readonly FoldingTabBar context;
+			public MainImageClickListener(FoldingTabBar context)
+			{
+				this.context = context;
+			}
+			public void OnClick(View v)
+			{
+				context.OnMainButtonClicked();
+				context.AnimateMenu();
+			}
 		}
 
 		/**
          * @param menuItem object from Android Sdk. This is same menu item
          * that you are using e.g in NavigationView or any kind of native menus
          */
-		internal SelectedMenuItem InitAndAddMenuItem(MenuItemImpl menuItem)
+		internal SelectedMenuItem InitAndAddMenuItem(IMenuItem menuItem)
 		{
 			var result = new SelectedMenuItem(Context, selectionColor)
 			{
@@ -358,20 +391,34 @@ namespace FoldingTabBarAndroid
 			// * Look here
 			AddView(result, indexCounter);
 
-			result.Click += (sender, e) =>
+			result.SetOnClickListener(new ResultClickListener(this, menuItem, result));
+			indexCounter++;
+			return result;
+		}
+
+		internal class ResultClickListener : Java.Lang.Object, IOnClickListener
+		{
+			readonly FoldingTabBar context;
+			private IMenuItem menuItem;
+			private SelectedMenuItem result;
+			public ResultClickListener(FoldingTabBar context, IMenuItem menuItem, SelectedMenuItem result)
 			{
-				OnFoldingItemSelected(menuItem);
+				this.context = context;
+				this.menuItem = menuItem;
+				this.result = result;
+			}
+			public void OnClick(View v)
+			{
+				context.OnFoldingItemSelected(menuItem);
 
 				menuItem.SetChecked(true);
 
-				if (selectedImageView != null)
-					selectedImageView.Activated = false;
-				selectedImageView = result;
-				selectedIndex = IndexOfChild(result);
-				AnimateMenu();
-			};
-			indexCounter++;
-			return result;
+				if (context.selectedImageView != null)
+					context.selectedImageView.Activated = false;
+				context.selectedImageView = result;
+				context.selectedIndex = context.IndexOfChild(result);
+				context.AnimateMenu();
+			}
 		}
 
 		internal void Select(int Position)
