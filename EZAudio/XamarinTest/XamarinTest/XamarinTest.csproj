@@ -84,7 +84,7 @@
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
     <Reference Include="EZAudioBinding">
-      <HintPath>..\packages\EZAudio.iOS.1.0.1\lib\Xamarin.iOS10\EZAudioBinding.dll</HintPath>
+      <HintPath>..\packages\EZAudio.iOS.1.0.2\lib\Xamarin.iOS10\EZAudioBinding.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

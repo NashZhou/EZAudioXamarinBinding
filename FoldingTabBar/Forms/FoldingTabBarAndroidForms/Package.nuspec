@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>FoldingTabBar.Android.For.Forms</id>
+    <version>1.0.0</version>
+    <authors>Nash Zhou</authors>
+    <owners>Nash Zhou</owners>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/NashZhou/Xamarin-Bindings/tree/master/FoldingTabBar/Forms</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>An altered version of the Xamarin Android binding of Yalantis's FoldingTabBar library. This is used for Xamarin Forms</description>
+    <releaseNotes>Image assets found in sample repo.</releaseNotes>
+    <copyright>Copyright 2019</copyright>
+    <tags>xamarin, xamarin-android, Xamarin.Android, Xamarin.Droid, xamarin-forms, Xamarin.Forms, FoldingTabBar</tags>
+  </metadata>
+  <files>
+    <file src="lib/MonoAndroid10/FoldingTabBarAndroidForms.dll" target="lib/MonoAndroid10/FoldingTabBarAndroidForms.dll"/>
+  </files>
+</package>

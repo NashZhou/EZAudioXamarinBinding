@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>FoldingTabBar.Android</id>
+    <version>1.0.0</version>
+    <authors>Nash Zhou</authors>
+    <owners>Nash Zhou</owners>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/NashZhou/Xamarin-Bindings/tree/master/FoldingTabBar/Android</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A Xamarin Android binding of Yalantis's FoldingTabBar library</description>
+    <releaseNotes>Image assets found in sample repo.</releaseNotes>
+    <copyright>Copyright 2019</copyright>
+    <tags>xamarin, xamarin-android, Xamarin.Android, Xamarin.Droid, FoldingTabBar</tags>
+  </metadata>
+  <files>
+    <file src="lib/MonoAndroid10/FoldingTabBarAndroid.dll" target="lib/MonoAndroid10/FoldingTabBarAndroid.dll"/>
+  </files>
+</package>

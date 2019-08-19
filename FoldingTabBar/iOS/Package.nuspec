@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>FoldingTabBar.iOS</id>
+    <version>1.0.0</version>
+    <authors>Nash Zhou</authors>
+    <owners>Nash Zhou</owners>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/NashZhou/Xamarin-Bindings/tree/master/FoldingTabBar/iOS</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A Xamarin iOS binding of Yalantis's FoldingTabBar library</description>
+    <releaseNotes>Constant values not implemented in binding. Image assets found in sample repo.</releaseNotes>
+    <copyright>Copyright 2019</copyright>
+    <tags>xamarin, xamarin-ios, Xamarin.iOS, FoldingTabBar</tags>
+  </metadata>
+  <files>
+    <file src="lib/Xamarin.iOS10/NativeLibrary.dll" target="lib/Xamarin.iOS10/NativeLibrary.dll"/>
+  </files>
+</package>
