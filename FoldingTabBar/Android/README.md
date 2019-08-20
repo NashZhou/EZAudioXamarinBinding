@@ -7,6 +7,7 @@
 
 ### Notes
 ***
+* [Available on NuGet](https://www.nuget.org/packages/FoldingTabBar.Android/)
 * Namespace: FoldingTabBarAndroid
 * Android SDK 19+
 * [Issues here](https://github.com/Yalantis/OfficialFoldingTabBar.Android/issues)

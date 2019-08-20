@@ -7,6 +7,7 @@
 
 ### Notes
 ***
+* [Available on NuGet](https://www.nuget.org/packages/FoldingTabBar.iOS/)
 * Namespace: FoldingTabBariOS
 * iOS 10+
 * Binded API found in APIDefinition.cs

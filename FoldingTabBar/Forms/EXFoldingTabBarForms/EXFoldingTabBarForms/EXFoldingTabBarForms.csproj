@@ -12,10 +12,6 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="4.1.0.555618" />
     <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="FoldingTabBar.Forms">
-      <HintPath>..\..\FoldingTabBar.Forms\lib\netstandard1.0\FoldingTabBar.Forms.dll</HintPath>
-    </Reference>
+    <PackageReference Include="FoldingTabBar.Forms" Version="1.0.0" />
   </ItemGroup>
 </Project>
