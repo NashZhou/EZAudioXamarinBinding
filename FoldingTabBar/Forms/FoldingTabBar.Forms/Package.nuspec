@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>FoldingTabBar.Forms</id>
+    <version>1.0.0</version>
+    <authors>Nash Zhou</authors>
+    <owners>Nash Zhou</owners>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/NashZhou/Xamarin-Bindings/tree/master/FoldingTabBar/Forms</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A Xamarin Forms binding of Yalantis's FoldingTabBar library</description>
+    <releaseNotes>Image assets found in sample repo.</releaseNotes>
+    <copyright>Copyright 2019</copyright>
+    <tags>xamarin, xamarin-forms, Xamarin.Forms, FoldingTabBar</tags>
+    <dependencies>
+      <group targetFramework="netstandard1.0">
+        <dependency id="NETStandard.Library" version="1.6.1" />
+      </group>
+      <group targetFramework="MonoAndroid10">
+        <dependency id="FoldingTabBar.Android.For.Forms" version="1.0" />
+      </group>
+      <group targetFramework="Xamarin.iOS10">
+        <dependency id="FoldingTabBar.iOS" version="1.0" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <!-- Net Standard 1.0 -->
+    <file src="lib/netstandard1.0/FoldingTabBar.Forms.dll" target="lib/netstandard1.0/FoldingTabBar.Forms.dll"/>
+    <!-- Android -->
+    <file src="lib/MonoAndroid10/FoldingTabBar.Forms.dll" target="lib/MonoAndroid10/FoldingTabBar.Forms.dll"/>
+    <file src="lib/MonoAndroid10/FoldingTabBar.Forms.Droid.dll" target="lib/MonoAndroid10/FoldingTabBar.Forms.Droid.dll"/>
+    <!-- iOS -->
+    <file src="lib/Xamarin.iOS10/FoldingTabBar.Forms.dll" target="lib/Xamarin.iOS10/FoldingTabBar.Forms.dll"/>
+    <file src="lib/Xamarin.iOS10/FoldingTabBar.Forms.iOS.dll" target="lib/Xamarin.iOS10/FoldingTabBar.Forms.iOS.dll"/>
+  </files>
+</package>
